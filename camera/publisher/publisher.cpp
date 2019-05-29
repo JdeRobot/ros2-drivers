@@ -4,6 +4,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include "common.hpp"
+#include <yaml-cpp/yaml.h>
 
 using namespace std::chrono_literals;
 
@@ -60,7 +61,7 @@ private:
 int main(int argc, char * argv[])
 {
 
-  YAML::Node config = YAML::LoadFile("config.yaml");
+  YAML::Node config = YAML::LoadFile("../camera/publisher/config.yaml");
 
   std::string topic = config["Topic"].as<std::string>();
   std::string cameraNum = config["cameraNum"].as<std::string>();
