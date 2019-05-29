@@ -60,10 +60,12 @@ private:
 int main(int argc, char * argv[])
 {
 
-  std::string topic = "camserver/rgb";
-  std::string cameraNum = "/dev/video0";
-  int fps = 30;
-  std::string name = "Camera_Server";
+  YAML::Node config = YAML::LoadFile("config.yaml");
+
+  std::string topic = config["Topic"].as<std::string>();
+  std::string cameraNum = config["cameraNum"].as<std::string>();
+  int fps = config["fps"].as<int>();
+  std::string name = config["Name"].as<std::string>();
 
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<CameraServer>(topic, cameraNum, fps, name));
