@@ -1,5 +1,3 @@
-#CameraServer:  # optional
-#ros__parameters:
 Topic: "camserver/rgb" 
 cameraNum: "/dev/video0"
 fps: 25
