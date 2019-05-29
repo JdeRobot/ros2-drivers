@@ -60,9 +60,10 @@ private:
 
 int main(int argc, char * argv[])
 {
-
-  YAML::Node config = YAML::LoadFile("../camera/publisher/config.yaml");
-
+  
+  std::string config_file_;
+  config_file_.assign(argv[1]);
+  YAML::Node config = YAML::LoadFile(config_file_);
   std::string topic = config["Topic"].as<std::string>();
   std::string cameraNum = config["cameraNum"].as<std::string>();
   int fps = config["fps"].as<int>();
